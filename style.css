@@ -10,7 +10,7 @@ html, body {
     height: 100%; /* Important for centering */
     
     /* --- BACKGROUND SETUP --- */
-    background-image: url('background.jpg');
+    background-image: url('background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
