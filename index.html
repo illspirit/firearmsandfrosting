@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firearms & Frosting</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Rye&display=swap" rel="stylesheet">
+
+    <style>
+        /* RESET & BASICS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevents scrolling on the splash page */
+        }
+
+        /* HERO BACKGROUND CONTAINER */
+        .splash-container {
+            /* Replace 'background.jpg' with your actual image filename */
+            background-image: url('background.jpg'); 
+            
+            /* These lines ensure the image covers the screen without stretching awkwardly */
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            height: 100%;
+            width: 100%;
+            position: relative;
+            
+            /* Flexbox to center content perfectly */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* DARK OVERLAY 
+           This adds a semi-transparent black layer so text pops 
+           against the busy background image 
+        */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Adjust 0.4 to make it darker/lighter */
+            z-index: 1;
+        }
+
+        /* CENTRAL CONTENT BOX */
+        .content-box {
+            position: relative;
+            z-index: 2; /* Sits on top of the overlay */
+            text-align: center;
+            padding: 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(20, 20, 20, 0.6); /* Glassmorphism effect */
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 90%;
+            width: 600px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* TYPOGRAPHY */
+        h1 {
+            color: #fff;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        /* The "Firearms" Text style */
+        .brand-firearms {
+            font-family: 'Rye', serif;
+            display: block;
+            letter-spacing: 2px;
+            color: #e0e0e0; /* Steel/Silver color */
+        }
+
+        /* The "Frosting" Text style */
+        .brand-frosting {
+            font-family: 'Great Vibes', cursive;
+            display: block;
+            color: #ff9ec7; /* Cupcake Pink */
+            font-size: 4.5rem;
+            margin-top: -10px;
+        }
+
+        .tagline {
+            color: #ddd;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* BUTTONS */
+        .button-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 5px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            min-width: 160px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        /* Specific Button Styles */
+        .btn-bakery {
+            background-color: #ff9ec7;
+            color: #4a1a2c;
+            border: 1px solid #ff9ec7;
+        }
+
+        .btn-armory {
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #777;
+        }
+
+        /* ANIMATION */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* MOBILE RESPONSIVENESS */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .brand-frosting { font-size: 3.5rem; }
+            .content-box { width: 95%; padding: 1.5rem; }
+            .button-container { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="splash-container">
+        <div class="overlay"></div>
+
+        <div class="content-box">
+            <h1>
+                <span class="brand-firearms">FIREARMS</span>
+                <span class="brand-frosting">and Frosting</span>
+            </h1>
+            
+            <p class="tagline">Caliber .44 & Buttercream</p>
+
+            <div class="button-container">
+                <a href="#bakery" class="btn btn-bakery">View Bakery</a>
+                <a href="#firearms" class="btn btn-armory">View Firearms</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
