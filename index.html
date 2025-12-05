@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
 </head>
@@ -19,9 +19,30 @@
         
         <img src="main-graphic.png" alt="Sweet Shots Coming Soon" class="content-img">
         
-        <p class="slogan-text">Gourmet Confections & Tactical Solutions // Coming Soon</p>
+        <p class="slogan-text" id="random-slogan">Gourmet Confections & Tactical Solutions</p>
         
     </main>
+
+    <script>
+        // 1. Define your list of slogans here
+        const slogans = [
+            "Gourmet Confections & Tactical Solutions",
+            "Lock, Load, and Glaze",
+            "Freshly Baked. Fully Loaded.",
+            "High Caliber Cupcakes",
+            "Sweet Treats & Serious Heat",
+            "Aim for the Sweet Spot",
+            "Magazines & Muffins",
+            "Sugar, Spice, and Stopping Power",
+            "A Balanced Diet of Lead and Sugar"
+        ];
+
+        // 2. Pick a random number based on the length of the list
+        const randomIndex = Math.floor(Math.random() * slogans.length);
+
+        // 3. Find the text element and replace it with the chosen slogan
+        document.getElementById('random-slogan').innerText = slogans[randomIndex];
+    </script>
 
 </body>
 </html>
