@@ -7,11 +7,10 @@
 
 html, body {
     width: 100%;
-    /* Allow scrolling if vertical space is too tight */
-    min-height: 100vh; 
+    height: 100%; /* Important for centering */
     
     /* --- BACKGROUND SETUP --- */
-    background-image: url('background.png');
+    background-image: url('background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -25,16 +24,19 @@ html, body {
 .splash-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Vertical Center */
+    align-items: center;     /* Horizontal Center */
     
+    /* --- THE ANDROID FIX --- */
+    /* 'dvh' calculates height ignoring the mobile URL bar */
     min-height: 100vh; 
+    min-height: 100dvh; 
+    
     width: 100%;
+    padding: 2rem; 
     
-    padding: 2vh 5vw; 
-    
-    /* Dark overlay fade - helps background image contrast */
-    background-color: rgba(0, 0, 0, 0.3);
+    /* Dark overlay fade */
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 /* --- Image Styling --- */
@@ -51,44 +53,48 @@ img {
 .logo-img {
     width: 100%;
     max-width: 500px; 
+    /* Limits height to avoid pushing content off screen */
     max-height: 25vh; 
     
     margin-bottom: 2vh;
-    /* Drop shadow for the logo image */
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.8));
 }
 
 .content-img {
     width: 100%;
     max-width: 800px;
-    max-height: 50vh; 
+    /* Limits height so slogan stays visible */
+    max-height: 45vh; 
     
-    margin-bottom: 2vh;
+    margin-bottom: 3vh;
     animation-delay: 0.3s;
-    
-    /* Drop shadow for the main graphic */
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.8));
 }
 
-/* --- Text Styling (With Black Outline) --- */
+/* --- Text Styling (Thicker Outline) --- */
 .slogan-text {
     color: #e0c097; /* Gold Color */
     
     /* Responsive sizing */
-    font-size: clamp(1rem, 2.5vw, 1.5rem); 
-    letter-spacing: 0.2em;
+    font-size: clamp(1rem, 3vw, 1.8rem); 
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     text-align: center;
-    font-weight: 700;
+    font-weight: 900; /* Extra bold */
     
-    /* --- THE BLACK OUTLINE EFFECT --- */
-    /* This creates 4 hard shadows to simulate a stroke + 1 soft shadow for depth */
+    /* --- THICKER BLACK OUTLINE --- */
+    /* Stacking shadows to create a 2px hard border */
     text-shadow: 
-        -1px -1px 0 #000,  
-         1px -1px 0 #000,
-        -1px  1px 0 #000,
-         1px  1px 0 #000,
-         0px  3px 5px rgba(0,0,0,1);
+        -2px -2px 0 #000,  
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000,
+         -2px  0px 0 #000,
+         2px  0px 0 #000,
+         0px -2px 0 #000,
+         0px  2px 0 #000,
+         /* Soft drop shadow behind the border for depth */
+         0px  4px 8px rgba(0,0,0,1);
     
     opacity: 0;
     animation: fadeUp 1s ease-out forwards 0.6s;
@@ -108,38 +114,34 @@ img {
 
 /* --- Mobile Specific Tweaks --- */
 @media (max-width: 768px) {
+    .splash-container {
+        /* Reduce padding on mobile to give images more room */
+        padding: 1rem;
+    }
+
     .logo-img {
-        max-height: 20vh; 
-        max-width: 80%;
+        max-height: 18vh; 
+        max-width: 85%;
+        margin-bottom: 2vh;
     }
     
     .content-img {
         max-height: 40vh;
         max-width: 95%;
+        margin-bottom: 2vh;
     }
     
     .slogan-text {
         letter-spacing: 0.1em;
-        margin-top: 1vh;
-        /* Make stroke slightly thinner on mobile so it doesn't look messy */
-        text-shadow: 
-            -1px -1px 0 #000,  
-             1px -1px 0 #000,
-             0px 2px 4px rgba(0,0,0,1);
     }
 }
 
+/* --- Landscape Mobile Fix --- */
 @media (max-height: 500px) {
-    .splash-container {
-        padding: 1rem;
-    }
     .logo-img {
-        max-height: 20vh;
-        margin-bottom: 1rem;
-        display: none; 
+        display: none; /* Hide top logo on really short screens so slogan is visible */
     }
     .content-img {
-        max-height: 60vh;
-        margin-bottom: 0.5rem;
+        max-height: 70vh;
     }
 }
