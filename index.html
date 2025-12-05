@@ -4,36 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firearms and Frosting</title>
-    <style>
-        /* Remove all default spacing */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-            background-color: #000000; /* Pure black to blend with image edges */
-            overflow: hidden; /* Prevents scrolling */
-            display: flex;
-            justify-content: center; /* Centers horizontally */
-            align-items: center; /* Centers vertically */
-        }
-
-        .splash-image {
-            /* This ensures the image never gets bigger than the screen */
-            max-width: 100%;
-            max-height: 100vh;
-            
-            /* 'contain' ensures the whole image is visible (nothing cropped) */
-            object-fit: contain; 
-            
-            /* smooth edges */
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <img src="logo.png" alt="Firearms and Frosting - Sweet Shots" class="splash-image">
+    <main class="splash-container">
+        
+        <img src="logo.png" alt="Firearms and Frosting Logo" class="logo-img">
+        
+        <img src="main-graphic.png" alt="Sweet Shots Coming Soon" class="content-img">
+        
+    </main>
 
 </body>
 </html>
