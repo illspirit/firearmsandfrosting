@@ -7,7 +7,7 @@
 
 html, body {
     width: 100%;
-    /* Allow scrolling if vertical space is too tight (safer for mobile) */
+    /* Allow scrolling if vertical space is too tight */
     min-height: 100vh; 
     
     /* --- BACKGROUND SETUP --- */
@@ -15,7 +15,7 @@ html, body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Keeps background still while scrolling */
+    background-attachment: fixed; 
     background-color: #1a1a1a;
     
     font-family: 'Cinzel', serif;
@@ -28,63 +28,67 @@ html, body {
     justify-content: center;
     align-items: center;
     
-    /* Takes up at least the full screen height */
     min-height: 100vh; 
     width: 100%;
     
-    /* Dynamic padding: 2% top/bottom, 5% left/right */
     padding: 2vh 5vw; 
     
-    /* Dark overlay fade */
-    background-color: rgba(0, 0, 0, 0.4);
+    /* Dark overlay fade - helps background image contrast */
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* --- Image Styling --- */
 img {
     display: block;
-    width: auto; /* Let width adjust automatically based on height limit */
+    width: auto; 
     height: auto;
     object-fit: contain;
     
-    /* Entrance Animation */
     opacity: 0;
     animation: fadeUp 1s ease-out forwards;
 }
 
 .logo-img {
     width: 100%;
-    /* DESKTOP: Don't let it get wider than 500px */
     max-width: 500px; 
-    
-    /* VERTICAL CONSTRAINT: Don't let it be taller than 25% of the screen */
     max-height: 25vh; 
     
-    margin-bottom: 2vh; /* Use vh for responsive spacing */
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+    margin-bottom: 2vh;
+    /* Drop shadow for the logo image */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.8));
 }
 
 .content-img {
     width: 100%;
-    /* DESKTOP: Don't let it get wider than 800px */
     max-width: 800px;
-    
-    /* VERTICAL CONSTRAINT: Don't let it be taller than 50% of the screen */
     max-height: 50vh; 
     
     margin-bottom: 2vh;
     animation-delay: 0.3s;
+    
+    /* Drop shadow for the main graphic */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.8));
 }
 
-/* --- Text Styling --- */
+/* --- Text Styling (With Black Outline) --- */
 .slogan-text {
-    color: #e0c097; 
-    /* Responsive font size: minimum 1rem, preferred 2.5vw, max 1.5rem */
+    color: #e0c097; /* Gold Color */
+    
+    /* Responsive sizing */
     font-size: clamp(1rem, 2.5vw, 1.5rem); 
     letter-spacing: 0.2em;
     text-transform: uppercase;
     text-align: center;
     font-weight: 700;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    
+    /* --- THE BLACK OUTLINE EFFECT --- */
+    /* This creates 4 hard shadows to simulate a stroke + 1 soft shadow for depth */
+    text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000,
+         0px  3px 5px rgba(0,0,0,1);
     
     opacity: 0;
     animation: fadeUp 1s ease-out forwards 0.6s;
@@ -105,13 +109,11 @@ img {
 /* --- Mobile Specific Tweaks --- */
 @media (max-width: 768px) {
     .logo-img {
-        /* On phone, allow it to be a bit taller relative to screen if needed */
         max-height: 20vh; 
         max-width: 80%;
     }
     
     .content-img {
-        /* On phone, graphics usually need to be wider */
         max-height: 40vh;
         max-width: 95%;
     }
@@ -119,10 +121,14 @@ img {
     .slogan-text {
         letter-spacing: 0.1em;
         margin-top: 1vh;
+        /* Make stroke slightly thinner on mobile so it doesn't look messy */
+        text-shadow: 
+            -1px -1px 0 #000,  
+             1px -1px 0 #000,
+             0px 2px 4px rgba(0,0,0,1);
     }
 }
 
-/* --- Landscape Mobile Fix (The "Short Screen" Problem) --- */
 @media (max-height: 500px) {
     .splash-container {
         padding: 1rem;
@@ -130,7 +136,7 @@ img {
     .logo-img {
         max-height: 20vh;
         margin-bottom: 1rem;
-        display: none; /* Optional: Hide top logo on VERY short screens to save space */
+        display: none; 
     }
     .content-img {
         max-height: 60vh;
