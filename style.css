@@ -1,0 +1,121 @@
+/* --- Reset & Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Locks the scroll */
+    background-color: #0f0f12; /* Deep matte charcoal */
+}
+
+/* --- Layout Wrapper --- */
+.splash-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding: 20px;
+    background: radial-gradient(circle at center, #1f1f25 0%, #000000 100%);
+}
+
+/* --- Logo Styling --- */
+.logo-image {
+    width: 100%;
+    max-width: 450px; /* Controls the size of the gun/whisk image */
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    
+    /* Subtle entrance animation */
+    opacity: 0;
+    animation: fadeZoom 1.2s ease-out forwards;
+}
+
+/* --- Typography --- */
+.text-container {
+    text-align: center;
+    z-index: 2;
+}
+
+.brand-name {
+    font-family: 'Cinzel', serif; /* Sharp, classic, metallic feel */
+    font-size: 3.5rem;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    
+    /* Animation delay */
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+.brand-name .amp {
+    color: #e68a9f; /* The 'Frosting' Pink accent */
+    font-family: 'Great Vibes', cursive; /* Script font for contrast */
+    text-transform: none;
+    font-size: 4rem;
+    font-weight: 400;
+}
+
+.tagline {
+    font-family: 'Great Vibes', cursive; /* Handwritten bakery feel */
+    font-size: 2.5rem;
+    color: #e68a9f; /* Matches the ampersand pink */
+    font-weight: 400;
+    margin-top: 5px;
+    text-shadow: 0 4px 10px rgba(230, 138, 159, 0.2); /* Soft glow */
+    
+    /* Animation delay */
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.8s forwards;
+}
+
+/* --- Animations --- */
+@keyframes fadeZoom {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 768px) {
+    .brand-name {
+        font-size: 2.2rem;
+    }
+    
+    .brand-name .amp {
+        font-size: 2.5rem;
+    }
+
+    .tagline {
+        font-size: 1.8rem;
+    }
+
+    .logo-image {
+        max-width: 300px;
+    }
+}
