@@ -13,7 +13,7 @@ html, body {
 
     /* --- BACKGROUND SETUP --- */
     /* This loads your patterned background image */
-    background-image: url('background.jpg');
+    background-image: url('background.png');
     /* Ensures it covers the whole screen */
     background-size: cover;
     /* Keeps it centered */
